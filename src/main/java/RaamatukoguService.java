@@ -1,9 +1,8 @@
-import classes.Autor;
-import classes.Laenutus;
-import classes.Lugeja;
-import classes.Teos;
+import models.Autor;
+import models.Laenutus;
+import models.Lugeja;
+import models.Teos;
 import org.javalite.activejdbc.Base;
-import org.javalite.activejdbc.LazyList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -81,30 +80,26 @@ public class RaamatukoguService {
 
         if (list != null)
             for (Teos teos : list) {
-                try {
-                    StringBuilder sb = new StringBuilder();
-                    for (Autor a : teos.getAll(Autor.class)) {
-                        if (sb.length() > 0)
-                            sb.append(", ");
-                        sb.append(a.getString("nimi"));
-                        if (a.getString("synniaeg") != null || a.getString("surmaaeg") != null) {
-                            sb.append(" (")
-                                    .append(a.getString("synniaeg"))
-                                    .append("-")
-                                    .append(a.getString("surmaaeg"))
-                                    .append(")");
-                        }
-
+                StringBuilder sb = new StringBuilder();
+                for (Autor a : teos.getAll(Autor.class)) {
+                    if (sb.length() > 0)
+                        sb.append(", ");
+                    sb.append(a.getString("nimi"));
+                    if (a.getString("synniaeg") != null || a.getString("surmaaeg") != null) {
+                        sb.append(" (")
+                                .append(a.getString("synniaeg"))
+                                .append("-")
+                                .append(a.getString("surmaaeg"))
+                                .append(")");
                     }
 
-                    teosed.add(Json.createObjectBuilder()
-                            .add("id", (int) teos.getInteger("id"))
-                            .add("teos", (String) teos.getString("pealkiri"))
-                            .add("aasta", (int) teos.getInteger("aasta"))
-                            .add("autorid", sb.toString()));
-                } catch (Throwable t) {
-                    t.printStackTrace();
                 }
+
+                teosed.add(Json.createObjectBuilder()
+                        .add("id", (int) teos.getInteger("id"))
+                        .add("teos", (String) teos.getString("pealkiri"))
+                        .add("aasta", (int) teos.getInteger("aasta"))
+                        .add("autorid", sb.toString()));
             }
 
         kataloog.add("teosed", teosed);

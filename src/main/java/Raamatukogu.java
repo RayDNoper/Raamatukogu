@@ -1,5 +1,5 @@
-import classes.Autor;
-import classes.Teos;
+import models.Autor;
+import models.Teos;
 import org.javalite.activejdbc.Base;
 
 import java.util.List;

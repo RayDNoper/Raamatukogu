@@ -1,4 +1,4 @@
-package classes;
+package models;
 
 import org.javalite.activejdbc.Model;
 import org.javalite.activejdbc.annotations.Many2Many;
