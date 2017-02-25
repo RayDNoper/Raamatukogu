@@ -39,7 +39,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RaamatukoguService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RaamatukoguService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/RaamatukoguService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="218">
@@ -49,6 +49,26 @@
                 <element signature="e#4769#4770#0" expanded="true" />
                 <element signature="e#4794#4795#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="raamatukogu_schema.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/raamatukogu_schema.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="244">
+              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="40" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="raamatukogu_data.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/raamatukogu_data.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -126,6 +146,7 @@
       <find>console.log</find>
       <find>deta</find>
       <find>join</find>
+      <find>laenutused</find>
     </findStrings>
     <replaceStrings>
       <replace>log.info</replace>
@@ -155,6 +176,8 @@
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/src/main/html/Raamatukogu.html" />
         <option value="$PROJECT_DIR$/src/main/java/RaamatukoguService.java" />
+        <option value="$PROJECT_DIR$/raamatukogu_schema.sql" />
+        <option value="$PROJECT_DIR$/raamatukogu_data.sql" />
       </list>
     </option>
   </component>
@@ -920,6 +943,22 @@
             <element signature="e#4769#4770#0" expanded="true" />
             <element signature="e#4794#4795#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/raamatukogu_schema.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="40" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/raamatukogu_data.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
