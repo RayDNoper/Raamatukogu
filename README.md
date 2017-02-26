@@ -46,7 +46,7 @@ kirjutada võimalikult vähe, samas, et see oleks võrdlemisi loetav ka ilma tee
 * andmebaas - PostgreSQL
 
     Isiklik eelistus, kuna antud rakenduse kontekstis poleks erilist vahet olnud pea ühegi baasiserveri puhul.
-    Olen hiljuti hobiprojekti jaoks just Postgre'd kasutanud, mistap see ol parajasti olemas ja käe järgi.
+    Olen hiljuti hobiprojekti jaoks just Postgre'd kasutanud, mistap see oli parajasti olemas ja käe järgi.
 * JSON - javax.json
 
     Varasemalt kasutatud, seega tuttav.
