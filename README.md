@@ -77,13 +77,21 @@ ActiveRecord'it. BAASi andmetest sai ümber tõstetud ~20 esimest teost koos aut
 Tööks kulunud aeg
 ---
 (kõik ajad mõõduka mõõteveaga +/- 1h)
+
 * planeerimine ja teekide valimine
+
     6h - kuna varasem kokkupuude REST-teenustega Javas on olnud *in-house* lahendustega, sai uurida ja tutvuda erinevate
     võimalustega ja katsetatud paari laialt soovitatud raamistikku.
+
 * baasimudelid ja REST teenus
+
     8h - jällegi, varasem kogemus on Javas Hibernate'ga, mis on tohutu *overhead*-iga ja väga tundlik erinevate
     piirsituatsioonide suhtes.
+
 * Javascript/HTML kasutaliides
+
     6h
+
 kokku:
+
     20h
