@@ -17,7 +17,6 @@ Andmebaasi schema prototüüp
     Lugeja 	(id, nimi)
     Laenutus (id, raamat_id, lugeja_id, algus, lopp)
 
-
 API
 ---
     /raamatukogu
@@ -31,7 +30,7 @@ API
 		    GET (lugeja -> laenutused)
 
 Valitud tehnoloogiad
-___
+---
 Kuna antud projekt on suhteliselt minimalistlik prototüüp, sai valitud teegid eelkõige selle järgi, et koodi tuleks
 kirjutada võimalikult vähe, samas, et see oleks võrdlemisi loetav ka ilma teekide käitumisse süvenemata.
 
@@ -49,4 +48,15 @@ kirjutada võimalikult vähe, samas, et see oleks võrdlemisi loetav ka ilma tee
     Varasemalt kasutatud, seega tuttav.
 * testid - testng
     Varasemalt kasutatud.
+* klientprogramm - jQueryUI ja selle teegid jsGrid ja jsTabs
+    jQuery(UI) peetakse küll aegnunuks ja ülemäära suureks, kuid on erinevalt paljudest teistest js teekidest stabiilne
+    ja (võrdlemisi) hästi dokumenteeritud, mistõttu on seda hea kasutada väikeste prototüüp-kasutajaliideste tegemiseks.
+
+Lahenduse lühikirjeldus
+---
+* Spark server genereerib vastavalt defineeritud REST API-le neli teenust - kataloog, laenutuste loetelu, laenuta ja
+    tagasta.
+* teenused ühenduvad andmebaasiga üle ActiveJDBC mudelite.
+* JS/HTML veebiliides teeb jQuery GET päringud REST API vastu ja kuvab saadu tabelis, mille read avavad omakorda jQuery
+    dialoogiakna, mille kaudu saab kasutaja valitud teose kas laenutada või tagastada.
 
