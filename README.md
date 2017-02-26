@@ -94,4 +94,4 @@ Tööks kulunud aeg
 
 kokku:
 
-    20h
+20h
