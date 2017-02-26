@@ -79,7 +79,7 @@ Kasutamine
 Lisainfo
 ---
 Projekti test-andmed on võetud hobiprojektist, milleks on Eesti ulmehuviliste kollektiivne lugemispäevik "Ulmekirjanduse
-BAAS". Antud veebileht oli esialgu kirjutatud 1990ndatel Access/VB.NET rakendusena, kuid seda jooksutav server lõpetas
+BAAS" (hetke arendusversioon asub aadressil http://uusbaas.ulme.ee ). Antud veebileht oli esialgu kirjutatud 1990ndatel Access/VB.NET rakendusena, kuid seda jooksutav server lõpetas
 2016. sügisel lõplikult töö. Access andmebaas sai konverteeritud Postgres'i, olemasolev kujundus võimalikult palju
 säilitatud ja uus teenus kirjutatud, kasutades Rubyt, veebirakenduse raamistikuks Sinatrat ja andmebaasiraamistikuks
 ActiveRecord'it. BAASi andmetest sai ümber tõstetud ~20 esimest teost koos autoritega.
