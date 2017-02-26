@@ -23,15 +23,20 @@ public class RaamatukoguService {
 
     Logger log = LoggerFactory.getLogger(getClass());
 
-    private void testConnection() {
+
+    private void restartConnection() {
         if (!Base.hasConnection()) {
             Base.open("org.postgresql.Driver", "jdbc:postgresql://localhost/raamatukogu", "raamatukogu", "raamatukogu");
         }
     }
 
+    public boolean testConnection() {
+        return Base.hasConnection();
+    }
+
     public RaamatukoguService() {
         log.info("RaamatukoguService startis...");
-        testConnection();
+        restartConnection();
 
     }
 
@@ -42,7 +47,7 @@ public class RaamatukoguService {
             nAasta = Integer.parseInt(fAasta);
         log.info("aasta:" + nAasta);
 
-        testConnection();
+        restartConnection();
 
         JsonObjectBuilder kataloog = Json.createObjectBuilder();
         kataloog.add(
@@ -106,7 +111,7 @@ public class RaamatukoguService {
 
     String laenuta(String lugejaNimi, String teosID) throws Exception {
 
-        testConnection();
+        restartConnection();
 
         Lugeja lugeja = Lugeja.first("nimi=?", lugejaNimi);
 
@@ -139,7 +144,7 @@ public class RaamatukoguService {
 
     String tagasta(String lugejaNimi, String teosID) throws Exception {
 
-        testConnection();
+        restartConnection();
 
         Lugeja lugeja = Lugeja.first("nimi=?", lugejaNimi);
 
@@ -162,7 +167,7 @@ public class RaamatukoguService {
 
     String getLaenutused(String lugejaNimi) throws Exception {
 
-        testConnection();
+        restartConnection();
 
         Lugeja lugeja = Lugeja.first("nimi=?", lugejaNimi);
 

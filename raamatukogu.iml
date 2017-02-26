@@ -38,5 +38,10 @@
     <orderEntry type="library" name="Maven: org.glassfish:javax.json:1.0.4" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.5.6" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-simple:1.5.6" level="project" />
+    <orderEntry type="library" name="Maven: org.junit.jupiter:junit-jupiter-api:5.0.0-M3" level="project" />
+    <orderEntry type="library" name="Maven: org.opentest4j:opentest4j:1.0.0-M1" level="project" />
+    <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-commons:1.0.0-M3" level="project" />
+    <orderEntry type="library" name="Maven: org.testng:testng:6.10" level="project" />
+    <orderEntry type="library" name="Maven: com.beust:jcommander:1.48" level="project" />
   </component>
 </module>
