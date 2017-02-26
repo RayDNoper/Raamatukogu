@@ -35,7 +35,7 @@ public class RaamatukoguService {
 
     }
 
-    public String getKataloog(String fTeos, String fAasta, String fAutor) {
+    public String getKataloog(String fTeos, String fAasta, String fAutor) throws Exception {
         log.info("teos:" + fTeos);
         int nAasta = 0;
         if (fAasta != null && !fAasta.isEmpty())
@@ -45,10 +45,12 @@ public class RaamatukoguService {
         testConnection();
 
         JsonObjectBuilder kataloog = Json.createObjectBuilder();
-        kataloog.add("teosFilter", fTeos == null ? "" : fTeos);
-        kataloog.add("aastaFilter", fAasta == null ? "" : fAasta);
-        JsonArrayBuilder teosed = Json.createArrayBuilder();
-        List<Teos> list = null;
+        kataloog.add(
+                    "filtrid",
+                    Json.createArrayBuilder()
+                            .add(Json.createObjectBuilder().add("teos", fTeos == null ? "" : fTeos))
+                            .add(Json.createObjectBuilder().add("aasta", fAasta == null ? "" : fAasta))
+                            .add(Json.createObjectBuilder().add("autor", fAutor == null ? "" : fAutor)));
 
         List<Object> params = new ArrayList();
         String query = "";
@@ -56,27 +58,29 @@ public class RaamatukoguService {
         // Ehitame dynaamiliselt p2ringu
         if (nAasta != 0) {
             log.info("aasta=" + nAasta);
-            query += (query.isEmpty() ? "" : " AND ") + " teosed.aasta=?";
+            query +=  " AND teosed.aasta=?";
             params.add(nAasta);
         }
         if (fTeos != null) {
             log.info("pealkiri=" + fTeos);
-            query += (query.isEmpty() ? "" : " AND ") + " teosed.pealkiri ILIKE ?";
+            query += " AND teosed.pealkiri ILIKE ?";
             params.add("%" + fTeos + "%");
         }
         if (fAutor != null) {
             log.info("autor=" + fAutor);
-            query += (query.isEmpty() ? "" : " AND ") + " autorid.nimi ILIKE ?";
+            query += " AND autorid.nimi ILIKE ?";
             params.add("%" + fAutor + "%");
         }
 
         log.info(query);
         log.info(Arrays.toString(params.toArray()));
 
-        list = Teos.findBySQL("SELECT teosed.*, autorid.nimi FROM teosed " +
+        List<Teos> list = Teos.findBySQL("SELECT teosed.*, autorid.nimi FROM teosed " +
                 " LEFT JOIN autor_teos ON teosed.id=autor_teos.teos_id " +
                 " LEFT JOIN autorid ON autor_teos.autor_id=autorid.id " +
-                " WHERE " + query, params.toArray());
+                " WHERE 1=1 " + query, params.toArray());
+
+        JsonArrayBuilder teosed = Json.createArrayBuilder();
 
         if (list != null)
             for (Teos teos : list) {
@@ -84,15 +88,7 @@ public class RaamatukoguService {
                 for (Autor a : teos.getAll(Autor.class)) {
                     if (sb.length() > 0)
                         sb.append(", ");
-                    sb.append(a.getString("nimi"));
-                    if (a.getString("synniaeg") != null || a.getString("surmaaeg") != null) {
-                        sb.append(" (")
-                                .append(a.getString("synniaeg"))
-                                .append("-")
-                                .append(a.getString("surmaaeg"))
-                                .append(")");
-                    }
-
+                    sb.append(a.toString());
                 }
 
                 teosed.add(Json.createObjectBuilder()
@@ -116,8 +112,6 @@ public class RaamatukoguService {
 
         if (lugeja == null)
             throw new Exception("Sellist lugejat ei eksisteeri");
-
-        System.out.println(lugeja.toString());
 
         Teos teos = Teos.first("id=?", Integer.parseInt(teosID));
 
@@ -143,8 +137,73 @@ public class RaamatukoguService {
         return "";
     }
 
-    String tagasta(String lugeja, String teos) {
+    String tagasta(String lugejaNimi, String teosID) throws Exception {
+
+        testConnection();
+
+        Lugeja lugeja = Lugeja.first("nimi=?", lugejaNimi);
+
+        if (lugeja == null)
+            throw new Exception("Sellist lugejat ei eksisteeri");
+
+        Laenutus laenutus = Laenutus.first("teos_id = ? AND lugeja_id = ? AND lopp IS NULL", Integer.parseInt(teosID), lugeja.getInteger("id"));
+
+        if (laenutus == null)
+            throw new Exception("Raamat ei ole sellele lugejale laenutatud");
+
+        laenutus.setDate("lopp", Date.from(Instant.now()));
+
+        if (!laenutus.save()) {
+            throw new Exception("ei õnnestunud tagastada : " + laenutus.errors());
+        }
+
         return "";
+    }
+
+    String getLaenutused(String lugejaNimi) throws Exception {
+
+        testConnection();
+
+        Lugeja lugeja = Lugeja.first("nimi=?", lugejaNimi);
+
+        log.info("lugeja =>" +lugeja);
+
+        if (lugeja == null) {
+            return Json.createObjectBuilder().add("teosed",Json.createArrayBuilder()).build().toString();
+            //throw new Exception("Sellist lugejat ei eksisteeri");
+        }
+
+        List<Laenutus> list = Laenutus.where("lugeja_id = ?", lugeja.getInteger("id"));
+
+        JsonArrayBuilder teosed = Json.createArrayBuilder();
+
+        if (list != null)
+            for (Laenutus laenutus : list) {
+
+                log.info("laenutus =>"+laenutus);
+
+                Teos teos = Teos.first("id = ?",laenutus.getInteger("teos_id"));
+
+                log.info("teos => "+teos);
+
+                StringBuilder sb = new StringBuilder();
+                for (Autor a : teos.getAll(Autor.class)) {
+                    if (sb.length() > 0)
+                        sb.append(", ");
+                    sb.append(a.toString());
+                }
+
+                teosed.add(Json.createObjectBuilder()
+                        .add("id", (int) teos.getInteger("id"))
+                        .add("teos", (String) teos.getString("pealkiri"))
+                        .add("aasta", (int) teos.getInteger("aasta"))
+                        .add("autorid", sb.toString())
+                        .add("algus",laenutus.getDate("algus").toString())
+                        .add("lopp", (laenutus.get("lopp")!= null ? laenutus.getDate("lopp").toString() : "")));
+            }
+
+
+        return Json.createObjectBuilder().add("teosed",teosed).build().toString();
     }
 
     public void start() {
@@ -159,13 +218,18 @@ public class RaamatukoguService {
 
             get("/kataloog",
                     (request, response) -> {
-                        System.out.println(request.queryParams());
                         String teos = request.queryParams("teos");
                         String aasta = request.queryParams("aasta");
                         String autor = request.queryParams("autor");
-                        return getKataloog(teos, aasta, autor);
+                        try {
+                            return getKataloog(teos, aasta, autor);
+                        } catch (Exception ex) {
+                            response.status(400);
+                            return ex.getMessage();
+                        }
+
                     });
-            post("/laenutus",
+            post("/laenuta",
                     (request, response) -> {
                         String lugeja = request.queryParams("lugeja");
                         String teos = request.queryParams("teos");
@@ -177,7 +241,7 @@ public class RaamatukoguService {
                             return ex.getMessage();
                         }
                     });
-            post("/tagastus/",
+            post("/tagasta",
                     (request, response) -> {
                         String lugeja = request.queryParams("lugeja");
                         String teos = request.queryParams("teos");
@@ -189,10 +253,19 @@ public class RaamatukoguService {
                             return ex.getMessage();
                         }
                     });
-            get("/laenutused/:lugeja",
+            get("/laenutused",
                     (request, response) -> {
-                        int lugeja = Integer.parseInt(request.params("lugeja"));
-                        return "";
+                        String lugeja = request.queryParams("lugeja");
+                        try {
+                            String result = getLaenutused(lugeja);
+                            log.info("result => "+result);
+                            return result;
+                        } catch (Exception ex) {
+                            log.error("error =>",ex);
+                            response.status(400);
+
+                            return ex.getMessage();
+                        }
                     });
         });
     }

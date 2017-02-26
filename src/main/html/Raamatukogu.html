@@ -24,26 +24,6 @@
 </head>
 <body>
 
-<div id="laenutaja">
-    <fieldset style="width: 400px">
-        <legend>Lugeja:</legend>
-        <input type="text" name="lugejaNimi" id="lugejaNimi"
-               style="width:100%"/>
-    </fieldset>
-</div>
-
-<div id="tabs">
-    <ul>
-        <li><a href="#kataloogSakk">Kataloog</a></li>
-        <li><a href="#laenutusedSakk">Minu laenutused</a></li>
-    </ul>
-    <div id="kataloogSakk">
-        <div id="kataloogGrid"></div>
-    </div>
-    <div id="laenutusedSakk">
-        here there be laenutused
-    </div>
-</div>
 
 
 <script>
@@ -51,10 +31,6 @@
 
  $( function() {
     $( "#tabs" ).tabs();
-  } );
-
-
-    $(function() {
 
     $("#kataloogGrid").jsGrid({
         height: "auto",
@@ -68,50 +44,119 @@
         pageSize: 10,
         pageButtonCount: 5,
 
-        rowClick: function(args) { showDetailsDialog("Laenuta", args.item) },
+        rowClick: function(args) { showlaenutusDialog("Laenuta", args.item) },
 
         controller: {
             loadData: function(bfilter) {
                 var d = $.Deferred();
-                console.log("filter>");
-                console.log(bfilter);
                 var res = $.getJSON("http://127.0.0.1:4567/raamatukogu/kataloog", {teos : bfilter.teos, aasta: bfilter.aasta, autor: bfilter.autorid},
                     function(data) { d.resolve(data.teosed) });
-
                 return d.promise();
             }
         },
 
-            fields: [
-                { name: "teos", type: "text", width: 300 },
-                { name: "aasta", type: "text", width: 80 },
-                { name: "autorid", type: "text", width: 300},
-            ]
+        fields: [
+            { name: "teos", type: "text", width: 300 },
+            { name: "aasta", type: "text", width: 80 },
+            { name: "autorid", type: "text", width: 300},
+        ]
     });
 
-    $("#detailsDialog").dialog({
+    $("#laenutusDialog").dialog({
         autoOpen: false,
         width: 350,
 
         bookId: -1,
 
         buttons: {
-            Laenuta: function (item){
+            'Laenuta': function (item){
                 var teos = $(this).dialog("option","bookId");
                 var lugeja = $("#lugejaNimi").val();
-                console.log("http://127.0.0.1:4567/raamatukogu/laenutus?lugeja="+lugeja+"&teos="+teos);
+                console.log("http://127.0.0.1:4567/raamatukogu/laenuta?lugeja="+lugeja+"&teos="+teos);
             }
         }
     });
 
-    var showDetailsDialog = function(dialogType, client) {
+    var showlaenutusDialog = function(dialogType, client) {
         console.log("details>");
         console.log(client.id);
         $("#pealkiri").val(client.teos).css("width","300px");
         $("#aasta").val(client.aasta).css("width","80px");
         $("#autorid").val(client.autorid).css("width","300px");
 
-        $("#detailsDialog")
+        $("#laenutusDialog")
+            .dialog("option", "title", dialogType + " raamat")
+            .dialog("option", "bookId", client.id)
+            .dialog("open");
+    };
+
+    $("#laenutusGrid").jsGrid({
+    height: "auto",
+        width: "100%",
+
+        sorting: true,
+        paging: true,
+        autoload: false,
+
+        pageSize: 10,
+        pageButtonCount: 5,
+
+        noDataContent: "Laenutused puuduvad",
+
+        rowClick: function(args) { showtagastusDialog("Tagasta", args.item) },
+
+        controller: {
+            loadData: function(bfilter) {
+                var d = $.Deferred();
+                var blugeja = $("#lugejaNimi").val();
+                console.log("lugeja >");
+                console.log(blugeja);
+                $.getJSON("http://127.0.0.1:4567/raamatukogu/laenutused", {lugeja : blugeja},
+                        function(data) { d.resolve(data.teosed) });
+
+                return d.promise();
+            }
+        },
+
+        fields: [
+            { name: "teos", type: "text", width: 300 },
+            { name: "aasta", type: "text", width: 80 },
+            { name: "autorid", type: "text", width: 300},
+            { name: "algus", type: "text", width: 200},
+            { name: "lopp", type: "text", width: 200},
+        ]
+    });
+
+    $("#tagastusDialog").dialog({
+        autoOpen: false,
+        width: 350,
+
+        bookId: -1,
+
+        defbuttons: {
+            'Tagastus': function (item){
+                var teos = $(this).dialog("option","bookId");
+                var lugeja = $("#lugejaNimi").val();
+                console.log("http://127.0.0.1:4567/raamatukogu/tagasta?lugeja="+lugeja+"&teos="+teos);
+            }
+        }
+    });
+
+    var showtagastusDialog = function(dialogType, client) {
+        console.log("details>");
+        console.log(client.lopp);
+        $("#lpealkiri").val(client.teos).css("width","300px");
+        $("#laasta").val(client.aasta).css("width","80px");
+        $("#lautorid").val(client.autorid).css("width","300px");
+        $("#lalgus").val(client.algus).css("width","300px");
+        $("#llopp").val(client.lopp).css("width","300px");
+
+        if (client.lopp == "")
+            $("#tagastusDialog").dialog("option","buttons", $("#tagastusDialog").dialog("option","defbuttons"));
+        else
+            $("#tagastusDialog").dialog("option","buttons", {});
+
+        $("#tagastusDialog")
             .dialog("option", "title", dialogType + " raamat")
             .dialog("option", "bookId", client.id)
             .dialog("open");
@@ -122,10 +167,40 @@
 
 
 </script>
-<div id="detailsDialog" class="ui-dialog" role="dialog">
+
+<div id="laenutaja">
+    <fieldset style="width: 400px">
+        <legend>Lugeja:</legend>
+        <input type="text" name="lugejaNimi" id="lugejaNimi"
+               style="width:100%" onchange="console.log($('#lugejaNimi').val()); $('#laenutusGrid').jsGrid('search');"/>
+    </fieldset>
+</div>
+
+<div id="tabs">
+    <ul>
+        <li><a href="#kataloogSakk">Kataloog</a></li>
+        <li><a href="#laenutusedSakk">Minu laenutused</a></li>
+    </ul>
+    <div id="kataloogSakk">
+        <div id="kataloogGrid"></div>
+    </div>
+    <div id="laenutusedSakk">
+        <div id="laenutusGrid"></div>
+    </div>
+</div>
+
+<div id="laenutusDialog" class="ui-dialog" role="dialog">
     <input id="pealkiri" name="pealkiri" type="text" />
     <input id="aasta" name="pealkiri" type="text" />
     <input id="autorid" name="autorid" type="text" />
+</div>
+
+<div id="tagastusDialog" class="ui-dialog" role="dialog">
+    <input id="lpealkiri" name="pealkiri" type="text" />
+    <input id="laasta" name="pealkiri" type="text" />
+    <input id="lautorid" name="autorid" type="text" />
+    <input id="lalgus" name="algus" type="text" />
+    <input id="llopp" name="lopp" type="text" />
 </div>
 </body>
 </html>

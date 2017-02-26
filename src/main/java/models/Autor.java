@@ -8,5 +8,19 @@ import org.javalite.activejdbc.annotations.Table;
  */
 
 @Table("autorid")
-public class Autor extends Model{
+public class Autor extends Model {
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(getString("nimi"));
+        if (getString("synniaeg") != null || getString("surmaaeg") != null) {
+            sb.append(" (")
+                    .append(getString("synniaeg"))
+                    .append("-")
+                    .append(getString("surmaaeg"))
+                    .append(")");
+        }
+        return sb.toString();
+    }
 }
