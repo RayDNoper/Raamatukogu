@@ -29,3 +29,24 @@ API
 		    POST (lugeja, teosID)
 	    /laenutused
 		    GET (lugeja -> laenutused)
+
+Valitud tehnoloogiad
+___
+Kuna antud projekt on suhteliselt minimalistlik prototüüp, sai valitud teegid eelkõige selle järgi, et koodi tuleks
+kirjutada võimalikult vähe, samas, et see oleks võrdlemisi loetav ka ilma teekide käitumisse süvenemata.
+
+* REST - Spark
+    Minimalistlik, ilma suurema overheadita veebirakenduste raamistik; võimaldas kirjutada lühikesed ja konkreetsed
+    GET ja POST teenused. Kuigi varem kasutanud ei olnud, oli väga intuitiivne ja kergesti omandatav.
+* andmebaasiliides - ActiveJDBC
+    ActiveRecordi analoog Javale, võimaldab runtime lähenemist klassidele vähese *boilerplate* koodiga.
+    Kuigi varem kasutanud ei olnud, oli võrdlemisi intuitiivne, sest kokkupuude ActiveRecordiga on olnud hobiprojekti
+    raames tihe.
+* andmebaas - PostgreSQL
+    Isiklik eelistus, kuna antud rakenduse puhul poleks erilist vahet olnud pea ühegi baasiserveri puhul.
+    Olen hiljuti hobiprojekti puhul just Postgre'd kasutanud, mistap see ol parajasti olemas ja käe järgi.
+* JSON - javax.json
+    Varasemalt kasutatud, seega tuttav.
+* testid - testng
+    Varasemalt kasutatud.
+
