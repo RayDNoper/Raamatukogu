@@ -60,3 +60,16 @@ Lahenduse lühikirjeldus
 * JS/HTML veebiliides teeb jQuery GET päringud REST API vastu ja kuvab saadu tabelis, mille read avavad omakorda jQuery
     dialoogiakna, mille kaudu saab kasutaja valitud teose kas laenutada või tagastada.
 
+Tööks kulunud aeg
+---
+(kõik ajad mõõduka mõõteveaga +/- 1h)
+* planeerimine ja teekide valimine
+    6h - kuna varasem kokkupuude REST-teenustega Javas on olnud *in-house* lahendustega, sai uurida ja tutvuda erinevate
+    võimalustega ja katsetatud paari laialt soovitatud raamistikku.
+* baasimudelid ja REST teenus
+    8h - jällegi, varasem kogemus on Javas Hibernate'ga, mis on tohutu *overhead*-iga ja väga tundlik erinevate
+    piirsituatsioonide suhtes.
+* Javascript/HTML kasutaliides
+    6h
+kokku:
+    20h
