@@ -92,6 +92,8 @@ Tööks kulunud aeg
 
     6h
 
-kokku:
+* dokumenteerimine, sealhulgas Markupi uurimine
 
-20h
+    2h
+
+kokku: 22h
