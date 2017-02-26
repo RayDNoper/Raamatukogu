@@ -66,6 +66,16 @@ Lahenduse lühikirjeldus
 * JS/HTML veebiliides teeb jQuery GET päringud REST API vastu ja kuvab saadu tabelis, mille read avavad omakorda jQuery
     dialoogiakna, mille kaudu saab kasutaja valitud teose kas laenutada või tagastada.
 
+Kasutamine
+---
+* Teenust saab käivitada *standalone*-teenusena, siis paneb sisseehitatud Jetty selle tööle localhost:4567 külge.
+  Vajadusel saab seda käivitada ka mõne veebiteenuse rakendusena.
+* Raamatukogu.html sisaldab lõiku
+    // KONSTANDID
+    var service = "http://127.0.0.1:4567";
+  milles olevat aadressi tuleb muuta, kui teenust jooksutatakse mõnel muul aadressil.
+* Kasutajaliides käivitub Raamatukogu.html-ist, tegu on ühe-lehe HTML/js lahendusega.
+
 Lisainfo
 ---
 Projekti test-andmed on võetud hobiprojektist, milleks on Eesti ulmehuviliste kollektiivne lugemispäevik "Ulmekirjanduse

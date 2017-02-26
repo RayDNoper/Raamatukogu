@@ -28,6 +28,9 @@
 
 <script>
 
+// KONSTANDID
+var service = "http://127.0.0.1:4567";
+
 
  $( function() {
     $( "#tabs" ).tabs();
@@ -56,7 +59,7 @@
         controller: {
             loadData: function(bfilter) {
                 var d = $.Deferred();
-                var res = $.getJSON("http://127.0.0.1:4567/raamatukogu/kataloog", {teos : bfilter.teos, aasta: bfilter.aasta, autor: bfilter.autorid},
+                var res = $.getJSON(service + "/raamatukogu/kataloog", {teos : bfilter.teos, aasta: bfilter.aasta, autor: bfilter.autorid},
                     function(data) { d.resolve(data.teosed) });
                 return d.promise();
             }
@@ -79,15 +82,12 @@
             'Laenuta': function (item){
                 var bteos = $(this).dialog("option","bookId");
                 var blugeja = $("#lugejaNimi").val();
-                console.log("http://127.0.0.1:4567/raamatukogu/laenuta?lugeja="+blugeja+"&teos="+bteos);
-                $.post("http://127.0.0.1:4567/raamatukogu/laenuta",
+                $.post(service + "/raamatukogu/laenuta",
                     { lugeja: blugeja, teos: bteos },
                     function (data) {
                        alert ("Teos laenutatud.");
                        $("#laenutusDialog").dialog("close");
                     }).fail( function (xhr, message, error) {
-                        console.log(xhr);
-                        console.log(error);
                         alert (message);
                     });
             }
@@ -95,8 +95,6 @@
     });
 
     var showlaenutusDialog = function(dialogType, client) {
-        console.log("details>");
-        console.log(client.id);
         $("#pealkiri").val(client.teos).css("width","300px");
         $("#aasta").val(client.aasta).css("width","80px");
         $("#autorid").val(client.autorid).css("width","300px");
@@ -131,9 +129,8 @@
             loadData: function(bfilter) {
                 var d = $.Deferred();
                 var blugeja = $("#lugejaNimi").val();
-                console.log("lugeja >");
-                console.log(blugeja);
-                $.getJSON("http://127.0.0.1:4567/raamatukogu/laenutused", {lugeja : blugeja},
+
+                $.getJSON(service + "/raamatukogu/laenutused", {lugeja : blugeja},
                         function(data) { d.resolve(data.teosed) });
 
                 return d.promise();
@@ -159,15 +156,13 @@
             'Tagastus': function (item){
                 var bteos = $(this).dialog("option","bookId");
                 var blugeja = $("#lugejaNimi").val();
-                console.log("http://127.0.0.1:4567/raamatukogu/tagasta?lugeja="+blugeja+"&teos="+bteos);
-                $.post("http://127.0.0.1:4567/raamatukogu/tagasta",
+
+                $.post(service + "/raamatukogu/tagasta",
                     { lugeja: blugeja, teos: bteos },
                     function (data) {
                        alert ("Teos laenutatud.");
                        $("#tagastusDialog").dialog("close");
                     }).fail( function (xhr, message, error) {
-                        console.log(xhr);
-                        console.log(error);
                         alert (message);
                     });
 
@@ -176,8 +171,6 @@
     });
 
     var showtagastusDialog = function(dialogType, client) {
-        console.log("details>");
-        console.log(client.lopp);
         $("#lpealkiri").val(client.teos).css("width","300px");
         $("#laasta").val(client.aasta).css("width","80px");
         $("#lautorid").val(client.autorid).css("width","300px");
@@ -205,7 +198,7 @@
     <fieldset style="width: 400px">
         <legend>Lugeja:</legend>
         <input type="text" name="lugejaNimi" id="lugejaNimi"
-               style="width:100%" onchange="console.log($('#lugejaNimi').val()); $('#laenutusGrid').jsGrid('search');"/>
+               style="width:100%" onchange="$('#laenutusGrid').jsGrid('search');"/>
     </fieldset>
 </div>
 

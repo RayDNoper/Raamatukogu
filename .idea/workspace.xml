@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26525fdf-6afb-402a-af2f-49475ed2b7db" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/RaamatukoguWeb.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/RaamatukoguWeb.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Raamatukogu.java" afterPath="$PROJECT_DIR$/src/main/java/Raamatukogu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/RaamatukoguService.java" afterPath="$PROJECT_DIR$/src/main/java/RaamatukoguService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/Raamatukogu.html" afterPath="$PROJECT_DIR$/src/main/html/Raamatukogu.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -73,8 +69,8 @@
       <file leaf-file-name="Raamatukogu.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/html/Raamatukogu.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2484">
-              <caret line="166" column="35" lean-forward="false" selection-start-line="166" selection-start-column="35" selection-end-line="166" selection-end-column="35" />
+            <state relative-caret-position="181">
+              <caret line="31" column="38" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="31" selection-end-column="38" />
               <folding>
                 <element signature="n#style#0;n#fieldset#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#fieldset#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -100,8 +96,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="38" column="42" lean-forward="false" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
+            <state relative-caret-position="317">
+              <caret line="76" column="85" lean-forward="false" selection-start-line="76" selection-start-column="85" selection-end-line="76" selection-end-column="85" />
               <folding />
             </state>
           </provider>
@@ -169,6 +165,8 @@
       <find>log</find>
       <find>katsetatud</find>
       <find>spark</find>
+      <find>127</find>
+      <find>console.lo</find>
     </findStrings>
     <replaceStrings>
       <replace>log.info</replace>
@@ -205,10 +203,10 @@
         <option value="$PROJECT_DIR$/src/main/java/models/Teos.java" />
         <option value="$PROJECT_DIR$/src/main/java/models/Lugeja.java" />
         <option value="$PROJECT_DIR$/src/main/java/models/Laenutus.java" />
-        <option value="$PROJECT_DIR$/src/main/html/Raamatukogu.html" />
         <option value="$PROJECT_DIR$/src/test/java/RaamatukoguServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/RaamatukoguService.java" />
         <option value="$PROJECT_DIR$/src/main/java/Raamatukogu.java" />
+        <option value="$PROJECT_DIR$/src/main/html/Raamatukogu.html" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
@@ -1044,17 +1042,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/html/Raamatukogu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2484">
-          <caret line="166" column="35" lean-forward="false" selection-start-line="166" selection-start-column="35" selection-end-line="166" selection-end-column="35" />
-          <folding>
-            <element signature="n#style#0;n#fieldset#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#fieldset#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
@@ -1105,10 +1092,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/html/Raamatukogu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="31" column="38" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="31" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#fieldset#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#fieldset#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="42" lean-forward="false" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
+        <state relative-caret-position="317">
+          <caret line="76" column="85" lean-forward="false" selection-start-line="76" selection-start-column="85" selection-end-line="76" selection-end-column="85" />
           <folding />
         </state>
       </provider>
