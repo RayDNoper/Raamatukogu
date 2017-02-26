@@ -43,6 +43,13 @@
 
         pageSize: 10,
         pageButtonCount: 5,
+        pagerFormat: "leheküljed: {first} {prev} {pages} {next} {last}    {pageIndex} / {pageCount}",
+        pagePrevText: "[tagasi]",
+        pageNextText: "[edasi]",
+        pageFirstText: "[esimene]",
+        pageLastText: "[viimane]",
+
+        loadMessage: "Palun oota...",
 
         rowClick: function(args) { showlaenutusDialog("Laenuta", args.item) },
 
@@ -70,9 +77,19 @@
 
         buttons: {
             'Laenuta': function (item){
-                var teos = $(this).dialog("option","bookId");
-                var lugeja = $("#lugejaNimi").val();
-                console.log("http://127.0.0.1:4567/raamatukogu/laenuta?lugeja="+lugeja+"&teos="+teos);
+                var bteos = $(this).dialog("option","bookId");
+                var blugeja = $("#lugejaNimi").val();
+                console.log("http://127.0.0.1:4567/raamatukogu/laenuta?lugeja="+blugeja+"&teos="+bteos);
+                $.post("http://127.0.0.1:4567/raamatukogu/laenuta",
+                    { lugeja: blugeja, teos: bteos },
+                    function (data) {
+                       alert ("Teos laenutatud.");
+                       $("#laenutusDialog").dialog("close");
+                    }).fail( function (xhr, message, error) {
+                        console.log(xhr);
+                        console.log(error);
+                        alert (message);
+                    });
             }
         }
     });
@@ -100,6 +117,11 @@
 
         pageSize: 10,
         pageButtonCount: 5,
+        pagerFormat: "leheküljed: {first} {prev} {pages} {next} {last}    {pageIndex} / {pageCount}",
+        pagePrevText: "tagasi",
+        pageNextText: "edasi",
+        pageFirstText: "esimene",
+        pageLastText: "viimane",
 
         noDataContent: "Laenutused puuduvad",
 
@@ -135,9 +157,20 @@
 
         defbuttons: {
             'Tagastus': function (item){
-                var teos = $(this).dialog("option","bookId");
-                var lugeja = $("#lugejaNimi").val();
-                console.log("http://127.0.0.1:4567/raamatukogu/tagasta?lugeja="+lugeja+"&teos="+teos);
+                var bteos = $(this).dialog("option","bookId");
+                var blugeja = $("#lugejaNimi").val();
+                console.log("http://127.0.0.1:4567/raamatukogu/tagasta?lugeja="+blugeja+"&teos="+bteos);
+                $.post("http://127.0.0.1:4567/raamatukogu/tagasta",
+                    { lugeja: blugeja, teos: bteos },
+                    function (data) {
+                       alert ("Teos laenutatud.");
+                       $("#tagastusDialog").dialog("close");
+                    }).fail( function (xhr, message, error) {
+                        console.log(xhr);
+                        console.log(error);
+                        alert (message);
+                    });
+
             }
         }
     });

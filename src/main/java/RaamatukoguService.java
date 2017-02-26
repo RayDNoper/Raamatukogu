@@ -224,6 +224,7 @@ public class RaamatukoguService {
                         try {
                             return getKataloog(teos, aasta, autor);
                         } catch (Exception ex) {
+                            log.error(ex.getMessage(), ex);
                             response.status(400);
                             return ex.getMessage();
                         }
@@ -236,8 +237,8 @@ public class RaamatukoguService {
                         try {
                             return laenuta(lugeja, teos);
                         } catch (Exception ex) {
+                            log.error(ex.getMessage(), ex);
                             response.status(400);
-
                             return ex.getMessage();
                         }
                     });
@@ -248,8 +249,8 @@ public class RaamatukoguService {
                         try {
                             return tagasta(lugeja, teos);
                         } catch (Exception ex) {
+                            log.error(ex.getMessage(), ex);
                             response.status(400);
-
                             return ex.getMessage();
                         }
                     });
