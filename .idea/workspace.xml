@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26525fdf-6afb-402a-af2f-49475ed2b7db" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_beust_jcommander_1_48.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_testng_testng_6_10.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/models/Autor.class" afterPath="$PROJECT_DIR$/target/classes/models/Autor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/models/Laenutus.class" afterPath="$PROJECT_DIR$/target/classes/models/Laenutus.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/models/Lugeja.class" afterPath="$PROJECT_DIR$/target/classes/models/Lugeja.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/models/Teos.class" afterPath="$PROJECT_DIR$/target/classes/models/Teos.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/RaamatukoguWeb.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/RaamatukoguWeb.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/raamatukogu.iml" afterPath="$PROJECT_DIR$/raamatukogu.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Raamatukogu.java" afterPath="$PROJECT_DIR$/src/main/java/Raamatukogu.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/RaamatukoguService.java" afterPath="$PROJECT_DIR$/src/main/java/RaamatukoguService.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -41,8 +37,8 @@
       <file leaf-file-name="Raamatukogu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Raamatukogu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="50" lean-forward="false" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
+            <state relative-caret-position="-21">
+              <caret line="10" column="50" lean-forward="true" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -63,8 +59,8 @@
       <file leaf-file-name="RaamatukoguService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/RaamatukoguService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="459">
+              <caret line="259" column="0" lean-forward="true" selection-start-line="259" selection-start-column="0" selection-end-line="259" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#745#746#0" expanded="true" />
@@ -87,7 +83,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RaamatukoguServiceTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RaamatukoguServiceTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/RaamatukoguServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-6">
@@ -97,6 +93,16 @@
                 <element signature="e#451#452#0" expanded="true" />
                 <element signature="e#482#483#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="38" column="42" lean-forward="false" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -118,18 +124,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
               <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Autor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/models/Autor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="29" lean-forward="false" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -168,6 +162,13 @@
       <find>/laenuta</find>
       <find>laenutusdia</find>
       <find>junit</find>
+      <find>puhul</find>
+      <find>puhul just</find>
+      <find>printl</find>
+      <find>println</find>
+      <find>log</find>
+      <find>katsetatud</find>
+      <find>spark</find>
     </findStrings>
     <replaceStrings>
       <replace>log.info</replace>
@@ -192,7 +193,6 @@
         <option value="$PROJECT_DIR$/src/main/java/classes/Lugeja.java" />
         <option value="$PROJECT_DIR$/src/main/java/Raamatukogu.html" />
         <option value="$PROJECT_DIR$/src/main/java/classes/RaamatukoguWeb.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Raamatukogu.java" />
         <option value="$PROJECT_DIR$/src/main/java/RaamatukoguWeb.java" />
         <option value="$PROJECT_DIR$/src/main/html/Raamatukogu.js" />
         <option value="$PROJECT_DIR$/src/main/java/classes/Laenutus.java" />
@@ -206,8 +206,10 @@
         <option value="$PROJECT_DIR$/src/main/java/models/Lugeja.java" />
         <option value="$PROJECT_DIR$/src/main/java/models/Laenutus.java" />
         <option value="$PROJECT_DIR$/src/main/html/Raamatukogu.html" />
-        <option value="$PROJECT_DIR$/src/main/java/RaamatukoguService.java" />
         <option value="$PROJECT_DIR$/src/test/java/RaamatukoguServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/RaamatukoguService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Raamatukogu.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -387,7 +389,7 @@
       <recent name="$PROJECT_DIR$/src/main/html" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.RaamatukoguTestid">
+  <component name="RunManager" selected="Application.Raamatukogu">
     <configuration default="false" name="Raamatukogu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Raamatukogu" />
@@ -725,8 +727,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="TestNG.RaamatukoguServiceTest.testKataloogFilter" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Raamatukogu" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Raamatukogu" />
+        <item index="1" class="java.lang.String" itemvalue="TestNG.RaamatukoguServiceTest.testKataloogFilter" />
       </list>
     </recent_temporary>
   </component>
@@ -752,9 +754,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RaamatukoguServiceTest_testKataloogFilter - 2017.02.26 at 22h 37m 10s.xml">
-      <configuration name="RaamatukoguServiceTest.testKataloogFilter" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="RaamatukoguServiceTest_testKataloogFilter - 2017.02.26 at 22h 38m 33s.xml">
       <configuration name="RaamatukoguServiceTest.testKataloogFilter" configurationId="TestNG" />
     </history-entry>
@@ -782,6 +781,9 @@
     <history-entry file="RaamatukoguTestid - 2017.02.26 at 22h 49m 04s.xml">
       <configuration name="RaamatukoguTestid" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="RaamatukoguTestid - 2017.02.26 at 23h 46m 48s.xml">
+      <configuration name="RaamatukoguTestid" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1391" height="877" extended-state="6" />
@@ -790,20 +792,20 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.49744713" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.4946082" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31311882" sideWeight="0.5028777" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31311882" sideWeight="0.5111431" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31311882" sideWeight="0.4971223" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31311882" sideWeight="0.48885694" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24586628" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.49748382" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -912,16 +914,6 @@
           <folding>
             <element signature="e#2111#2112#0" expanded="true" />
             <element signature="e#2165#2166#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/RaamatukoguWeb.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="25" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1071,28 +1063,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Raamatukogu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="50" lean-forward="false" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/RaamatukoguService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#745#746#0" expanded="true" />
-            <element signature="e#788#789#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/RaamatukoguServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6">
@@ -1102,6 +1072,44 @@
             <element signature="e#451#452#0" expanded="true" />
             <element signature="e#482#483#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/RaamatukoguWeb.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/RaamatukoguService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="259" column="0" lean-forward="true" selection-start-line="259" selection-start-column="0" selection-end-line="259" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#745#746#0" expanded="true" />
+            <element signature="e#788#789#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Raamatukogu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-21">
+          <caret line="10" column="50" lean-forward="true" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="42" lean-forward="false" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -36,7 +36,7 @@ kirjutada võimalikult vähe, samas, et see oleks võrdlemisi loetav ka ilma tee
 
 * REST - Spark
 
-    Minimalistlik, ilma suurema overheadita veebirakenduste raamistik; võimaldas kirjutada lühikesed ja konkreetsed
+    Minimalistlik, ilma suurema *overhead*ita veebirakenduste raamistik; võimaldas kirjutada lühikesed ja konkreetsed
     GET ja POST teenused. Kuigi varem kasutanud ei olnud, oli väga intuitiivne ja kergesti omandatav.
 * andmebaasiliides - ActiveJDBC
 
@@ -68,7 +68,7 @@ Lahenduse lühikirjeldus
 
 Lisainfo
 ---
-Projekti test-andmed on võetud hobiprojektist, milleks on Eesti ulmehuviliste kollektiivse lugemispäevik "Ulmekirjanduse
+Projekti test-andmed on võetud hobiprojektist, milleks on Eesti ulmehuviliste kollektiivne lugemispäevik "Ulmekirjanduse
 BAAS". Antud veebileht oli esialgu kirjutatud 1990ndatel Access/VB.NET rakendusena, kuid seda jooksutav server lõpetas
 2016. sügisel lõplikult töö. Access andmebaas sai konverteeritud Postgres'i, olemasolev kujundus võimalikult palju
 säilitatud ja uus teenus kirjutatud, kasutades Rubyt, veebirakenduse raamistikuks Sinatrat ja andmebaasiraamistikuks
@@ -81,14 +81,14 @@ Tööks kulunud aeg
 * planeerimine ja teekide valimine
 
     6h - kuna varasem kokkupuude REST-teenustega Javas on olnud *in-house* lahendustega, sai uurida ja tutvuda erinevate
-    võimalustega ja katsetatud paari laialt soovitatud raamistikku.
+    võimalustega ja katsetada paari laialt soovitatud raamistikku.
 
 * baasimudelid ja REST teenus
 
     8h - jällegi, varasem kogemus on Javas Hibernate'ga, mis on tohutu *overhead*-iga ja väga tundlik erinevate
     piirsituatsioonide suhtes.
 
-* Javascript/HTML kasutaliides
+* Javascript/HTML kasutajaliides
 
     6h
 

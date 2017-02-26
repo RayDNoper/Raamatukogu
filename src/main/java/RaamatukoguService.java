@@ -41,11 +41,9 @@ public class RaamatukoguService {
     }
 
     public String getKataloog(String fTeos, String fAasta, String fAutor) throws Exception {
-        log.info("teos:" + fTeos);
         int nAasta = 0;
         if (fAasta != null && !fAasta.isEmpty())
             nAasta = Integer.parseInt(fAasta);
-        log.info("aasta:" + nAasta);
 
         restartConnection();
 
@@ -62,23 +60,17 @@ public class RaamatukoguService {
 
         // Ehitame dynaamiliselt p2ringu
         if (nAasta != 0) {
-            log.info("aasta=" + nAasta);
             query +=  " AND teosed.aasta=?";
             params.add(nAasta);
         }
         if (fTeos != null) {
-            log.info("pealkiri=" + fTeos);
             query += " AND teosed.pealkiri ILIKE ?";
             params.add("%" + fTeos + "%");
         }
         if (fAutor != null) {
-            log.info("autor=" + fAutor);
             query += " AND autorid.nimi ILIKE ?";
             params.add("%" + fAutor + "%");
         }
-
-        log.info(query);
-        log.info(Arrays.toString(params.toArray()));
 
         List<Teos> list = Teos.findBySQL("SELECT teosed.*, autorid.nimi FROM teosed " +
                 " LEFT JOIN autor_teos ON teosed.id=autor_teos.teos_id " +
@@ -139,7 +131,7 @@ public class RaamatukoguService {
             throw new Exception("ei õnnestunud laenutada : " + laenutus.errors());
         }
 
-        return "";
+        return "OK";
     }
 
     String tagasta(String lugejaNimi, String teosID) throws Exception {
@@ -162,7 +154,7 @@ public class RaamatukoguService {
             throw new Exception("ei õnnestunud tagastada : " + laenutus.errors());
         }
 
-        return "";
+        return "OK";
     }
 
     String getLaenutused(String lugejaNimi) throws Exception {
@@ -171,11 +163,9 @@ public class RaamatukoguService {
 
         Lugeja lugeja = Lugeja.first("nimi=?", lugejaNimi);
 
-        log.info("lugeja =>" +lugeja);
-
         if (lugeja == null) {
+            // tagasta tyhi laenutuste loetelu
             return Json.createObjectBuilder().add("teosed",Json.createArrayBuilder()).build().toString();
-            //throw new Exception("Sellist lugejat ei eksisteeri");
         }
 
         List<Laenutus> list = Laenutus.where("lugeja_id = ?", lugeja.getInteger("id"));
@@ -185,11 +175,7 @@ public class RaamatukoguService {
         if (list != null)
             for (Laenutus laenutus : list) {
 
-                log.info("laenutus =>"+laenutus);
-
                 Teos teos = Teos.first("id = ?",laenutus.getInteger("teos_id"));
-
-                log.info("teos => "+teos);
 
                 StringBuilder sb = new StringBuilder();
                 for (Autor a : teos.getAll(Autor.class)) {
@@ -213,14 +199,10 @@ public class RaamatukoguService {
 
     public void start() {
 
-        get("/test", (req, res) -> "test rmtk");
         before((request, response) -> {
             response.header("Access-Control-Allow-Origin", "*");
-            log.info("request:" + request.toString());
-            log.info("response:" + response.toString());
         });
         path("/raamatukogu", () -> {
-
             get("/kataloog",
                     (request, response) -> {
                         String teos = request.queryParams("teos");
@@ -269,7 +251,6 @@ public class RaamatukoguService {
                         } catch (Exception ex) {
                             log.error("error =>",ex);
                             response.status(400);
-
                             return ex.getMessage();
                         }
                     });
